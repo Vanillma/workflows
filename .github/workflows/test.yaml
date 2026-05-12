@@ -2,9 +2,12 @@ name: Github Workflows
 
 on: push
 
+env:
+  GLOG: $GITHUB_STEP_SUMMARY
+
 jobs:
   helloWorld:
     runs-on: ubuntu-latest
     steps:
       - name: Print Hello World
-        run: echo "Hello World!" > $GITHUB_STEP_SUMMARY
+        run: echo "Hello Logger!" > $GLOG
