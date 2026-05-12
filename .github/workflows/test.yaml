@@ -14,10 +14,10 @@ jobs:
     steps:
       - name: Download Link
         run: echo "curl ${{ github.event.inputs.link }}" > $GITHUB_STEP_SUMMARY
-      # - name: curl Check
-      #   run:|
-      #   if command -v curl &> /dev/null; then
-      #     echo "curl is installed :)" > $GITHUB_STEP_SUMMARY
-      #   else
-      #     echo "curl is not installed :(" > $GITHUB_STEP_SUMMARY
-      #   fi
+      - name: curl Check
+        run:|
+        if command -v curl &> /dev/null; then
+        echo "curl is installed :)" > $GITHUB_STEP_SUMMARY
+        else
+        echo "curl is not installed :(" > $GITHUB_STEP_SUMMARY
+        fi
