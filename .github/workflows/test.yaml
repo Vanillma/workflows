@@ -6,9 +6,9 @@ on:
       name:
         description: "What's your name?"
 
-jobs:
-  helloWorld:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print Hello World
-        run: echo "Hello Logger!" > $GITHUB_STEP_SUMMARY
+# jobs:
+#   helloWorld:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Print Hello World
+#         run: echo "Hello Logger!" > $GITHUB_STEP_SUMMARY
