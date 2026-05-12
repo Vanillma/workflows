@@ -5,6 +5,7 @@ on:
     inputs:
       name:
         description: "What's your name?"
+        required: true
 
 jobs:
   helloWorld:
