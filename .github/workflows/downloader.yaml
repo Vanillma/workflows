@@ -1,0 +1,30 @@
+name: Downloader
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'لینک فایل'
+        required: true
+        type: string
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: چکاوت کد مخزن
+        uses: actions/checkout@v4
+
+      - name: دانلود با curl
+        run: |
+          curl -L -O "${{ github.event.inputs.url }}"
+          echo "# گزارش دانلود" >> $GITHUB_STEP_SUMMARY
+          echo "فایل دانلود شده از: ${{ github.event.inputs.url }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: اضافه کردن فایل به مخزن
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Add downloaded file via workflow [skip ci]" || echo "تغییری وجود ندارد"
+          git push
