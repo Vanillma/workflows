@@ -3,7 +3,7 @@ name: Github Workflows
 on: push
 
 env:
-  GLOG: $GITHUB_STEP_SUMMARY
+  GLOG: "$GITHUB_STEP_SUMMARY"
 
 jobs:
   helloWorld:
