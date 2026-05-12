@@ -3,13 +3,18 @@ name: Github Workflows
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: "What's your name?"
+      Link:
+        description: "Download Link"
         required: true
+        type: string
 
 jobs:
-  helloWorld:
+  fileDownloader:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello World
-        run: echo "Hello ${{ github.event.inputs.name }}" > $GITHUB_STEP_SUMMARY
+
+      - name: curl Check
+        run: curl -v > $GITHUB_STEP_SUMMARY
+
+      - name: Download Link
+        run: echo "curl ${{ github.event.inputs.name }}" > $GITHUB_STEP_SUMMARY
