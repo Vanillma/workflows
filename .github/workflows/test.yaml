@@ -3,7 +3,7 @@ name: Github Workflows
 on:
   workflow_dispatch:
     inputs:
-      Link:
+      link:
         description: "Download Link"
         required: true
         type: string
@@ -15,7 +15,17 @@ jobs:
 
 
       - name: Download Link
-        run: echo "curl ${{ github.event.inputs.name }}" > $GITHUB_STEP_SUMMARY
+        run: echo "curl ${{ github.event.inputs.link }}" > $GITHUB_STEP_SUMMARY
       
       - name: curl Check
-        run: curl -v > $GITHUB_STEP_SUMMARY
+        run:|
+
+        if command -v curl &> /dev/null; then
+
+          echo "curl is installed :)" > $GITHUB_STEP_SUMMARY
+
+        else
+
+          echo "curl is not installed :(" > $GITHUB_STEP_SUMMARY
+
+        fi
