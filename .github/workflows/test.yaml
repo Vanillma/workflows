@@ -1,13 +1,10 @@
 name: Github Workflows
 
-on: push
-
-env:
-  GLOG: "$GITHUB_STEP_SUMMARY"
+on: workflow_dispatch
 
 jobs:
   helloWorld:
     runs-on: ubuntu-latest
     steps:
       - name: Print Hello World
-        run: echo "Hello Logger!" > ${{ env.GLOG }}
+        run: echo "Hello Logger!" > $GITHUB_STEP_SUMMARY
