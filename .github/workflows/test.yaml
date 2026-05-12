@@ -1,6 +1,10 @@
 name: Github Workflows
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "What's your name?"
 
 jobs:
   helloWorld:
