@@ -13,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: curl Check
-        run: curl -v > $GITHUB_STEP_SUMMARY
 
       - name: Download Link
         run: echo "curl ${{ github.event.inputs.name }}" > $GITHUB_STEP_SUMMARY
+      
+      - name: curl Check
+        run: curl -v > $GITHUB_STEP_SUMMARY
