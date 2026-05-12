@@ -12,11 +12,8 @@ jobs:
   fileDownloader:
     runs-on: ubuntu-latest
     steps:
-
-
       - name: Download Link
         run: echo "curl ${{ github.event.inputs.link }}" > $GITHUB_STEP_SUMMARY
-      
       - name: curl Check
         run:|
         if command -v curl &> /dev/null; then
