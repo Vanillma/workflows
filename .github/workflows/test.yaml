@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Hello World
-        run: echo "Hello Logger!" > $GITHUB_STEP_SUMMARY
+        run: echo "Hello ${{ github.event.inputs.name }}" > $GITHUB_STEP_SUMMARY
