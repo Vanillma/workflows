@@ -17,8 +17,8 @@ jobs:
 
       - name: curl Check
         run: |
-        if command -v curl &> /dev/null; then
-        echo "curl is installed :)" > $GITHUB_STEP_SUMMARY
-        else
-        echo "curl is not installed :(" > $GITHUB_STEP_SUMMARY
-        fi
+          if command -v curl &> /dev/null; then
+            echo "curl is installed :)" > $GITHUB_STEP_SUMMARY
+          else
+            echo "curl is not installed :(" > $GITHUB_STEP_SUMMARY
+          fi
